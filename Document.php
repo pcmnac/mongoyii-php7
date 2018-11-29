@@ -639,7 +639,7 @@ class Document extends Model
 
 		$this->lastError = $this->getCollection()->insertOne($document);
 
-		if($this->lastError->getInsertedCount() > 0){
+		if(!$this->lastError->isAcknowledged() || $this->lastError->getInsertedCount() > 0){
 			$this->afterSave();
 			$this->setIsNewRecord(false);
 			$this->setScenario('update');

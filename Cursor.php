@@ -104,7 +104,9 @@ class Cursor implements Iterator, Countable
 	 */
 	public function getNext()
 	{
-		if($c = $this->cursor->getNext()){
+        $this->cursor->next();
+		if($this->cursor->valid()){
+            $c = $this->cursor->current();
 			return $this->current = $this->model->populateRecord($c, true, $this->partial);
 		}
 		return null;
