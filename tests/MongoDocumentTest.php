@@ -113,16 +113,16 @@ class MongoDocumentTest extends CTestCase
 	public function testModel()
 	{
 		$c = User::model();
-		$this->assertInstanceOf('sammaye\mongoyii\Document', $c);
+		$this->assertInstanceOf('pcmnac\mongoyii\Document', $c);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::save
+	 * @covers pcmnac\mongoyii\Document::save
 	 */
 	public function testSaving()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$r = User::model()->find();
@@ -138,12 +138,12 @@ class MongoDocumentTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::delete
+	 * @covers pcmnac\mongoyii\Document::delete
 	 */
 	public function testDeleting()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 		$r=$c->delete();
 		$this->assertTrue($r['n'] == 1 && $r['err'] === null);
@@ -153,7 +153,7 @@ class MongoDocumentTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::findOne
+	 * @covers pcmnac\mongoyii\Document::findOne
 	 */
 	public function testFindOne()
 	{
@@ -166,12 +166,12 @@ class MongoDocumentTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::findBy_id
+	 * @covers pcmnac\mongoyii\Document::findBy_id
 	 */
 	public function testFindById()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$r = User::model()->findBy_id($c->_id);
@@ -180,11 +180,11 @@ class MongoDocumentTest extends CTestCase
 		$r = User::model()->findBy_id((string)$c->_id);
 		$this->assertTrue(!is_null($r));
 
-		$this->assertEquals('sammaye', $r->username);
+		$this->assertEquals('pcmnac', $r->username);
 	}
 	
 	/**
-	 * @covers sammaye\mongoyii\Document::findAllByPk
+	 * @covers pcmnac\mongoyii\Document::findAllByPk
 	 */
 	public function testFindAllByPk()
 	{
@@ -201,35 +201,35 @@ class MongoDocumentTest extends CTestCase
 		$r = User::model()->findAllByPk(array((string)$c->_id));
 		$this->assertTrue(!is_null($r));
 
-		$this->assertInstanceOf('sammaye\mongoyii\Cursor', $r);
+		$this->assertInstanceOf('pcmnac\mongoyii\Cursor', $r);
 
 		$r = User::model()->findOne(['_id' => $c->_id] , ['projection' => ['username' => 1]]);
 		$this->assertEquals('harry', $r->username);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::updateByPk
+	 * @covers pcmnac\mongoyii\Document::updateByPk
 	 */
 	public function testUpdateByPk()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$c->updateByPk($c->_id, array('$set' => array('username' => 'gfgfgf')));
 
 		$r = User::model()->findOne(array('username' => 'gfgfgf'));
-		$this->assertInstanceOf('sammaye\mongoyii\Document', $r);
+		$this->assertInstanceOf('pcmnac\mongoyii\Document', $r);
 		$this->assertEquals('gfgfgf', $r->username);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::deleteByPk
+	 * @covers pcmnac\mongoyii\Document::deleteByPk
 	 */
 	public function testDeleteByPk()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$c->deleteByPk($c->_id);
@@ -239,7 +239,7 @@ class MongoDocumentTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::updateAll
+	 * @covers pcmnac\mongoyii\Document::updateAll
 	 */
 	public function testUpdateAll()
 	{
@@ -252,19 +252,19 @@ class MongoDocumentTest extends CTestCase
 		$c->updateAll(array('username' => 'frodo'), array('$set' => array('username' => 'gdgdgd')));
 
 		$r = User::model()->findOne(array('username' => 'gdgdgd'));
-		$this->assertInstanceOf('sammaye\mongoyii\Document', $r);
+		$this->assertInstanceOf('pcmnac\mongoyii\Document', $r);
 
 		$r = User::model()->count(array('username' => 'gdgdgd'));
 		$this->assertEquals(4, $r);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::deleteAll
+	 * @covers pcmnac\mongoyii\Document::deleteAll
 	 */
 	public function testDeleteAll()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$c->deleteAll();
@@ -293,7 +293,7 @@ class MongoDocumentTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::saveAttributes
+	 * @covers pcmnac\mongoyii\Document::saveAttributes
 	 */
 	public function testSaveAttributes()
 	{
@@ -312,14 +312,14 @@ class MongoDocumentTest extends CTestCase
 		$c = new User;
 		$c->username = 'radagast';
 		$c->job_title = 'wizard';
-		$this->setExpectedException('sammaye\mongoyii\Exception');
+		$this->setExpectedException('pcmnac\mongoyii\Exception');
 		$c->saveAttributes(array('job_title'));
 	}
 
 	public function testPartialDocuments()
 	{
 		$u = new User;
-		$u->username = 'sammaye';
+		$u->username = 'pcmnac';
 		$this->assertTrue($u->save());
 
 		$r = User::model()->findOne([], ['projection' => ['username' => 1]]);
@@ -343,7 +343,7 @@ class MongoDocumentTest extends CTestCase
 	{
 		$this->setUpRelationalModel();
 		$r = User::model()->findOne();
-		$this->assertInstanceOf('sammaye\mongoyii\Document', $r->one_interest);
+		$this->assertInstanceOf('pcmnac\mongoyii\Document', $r->one_interest);
 	}
 
 	public function testManyRelation()
@@ -368,7 +368,7 @@ class MongoDocumentTest extends CTestCase
 	{
 		$this->setUpRelationalModel();
 		$r = User::model()->findOne();
-		$this->assertInstanceOf('sammaye\mongoyii\Cursor', $r->where_interest);
+		$this->assertInstanceOf('pcmnac\mongoyii\Cursor', $r->where_interest);
 	}
 
 	public function testFunctionalRelation()
@@ -388,7 +388,7 @@ class MongoDocumentTest extends CTestCase
 	public function testTimestampBehaviour()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 		$this->assertTrue(isset($c->create_time));
 
@@ -427,12 +427,12 @@ class MongoDocumentTest extends CTestCase
 	{
 		$c = new User;
 		$c->setScenario('testUnqiue');
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$c = new User;
 		$c->setScenario('testUnqiue');
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertFalse($c->validate());
 		$this->assertNotEmpty($c->getError('username'));
 	}
@@ -443,14 +443,14 @@ class MongoDocumentTest extends CTestCase
 	public function testArraySubdocumentValidator()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$c->addresses = array(
 			array('road' => 12, 'town' => 'yo', 'county' => 23, 'post_code' => 'g', 'telephone' => 'ggg')
 		);
 		$this->assertFalse($c->validate());
 
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$c->addresses = array(
 			array('road' => 's', 'town' => 'yo', 'county' => 'sa', 'post_code' => 'g', 'telephone' => 23)
 		);
@@ -463,7 +463,7 @@ class MongoDocumentTest extends CTestCase
 	public function testClassSubdocumentValidator()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 
 		$s = new SocialUrl();
 		$s->url = "facebook";
@@ -474,7 +474,7 @@ class MongoDocumentTest extends CTestCase
 		$this->assertTrue(!$c->url instanceof SocialUrl);
 
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 
 		$s = new SocialUrl();
 		$s->url = 1;
@@ -499,26 +499,26 @@ class MongoDocumentTest extends CTestCase
 	}	
 
 	/**
-	 * @covers sammaye\mongoyii\Document::exists
+	 * @covers pcmnac\mongoyii\Document::exists
 	 */
 	public function testExists()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
-		$this->assertTrue(User::model()->exists(array('username' => 'sammaye')));
+		$this->assertTrue(User::model()->exists(array('username' => 'pcmnac')));
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::equals
+	 * @covers pcmnac\mongoyii\Document::equals
 	 */
 	public function testEquals()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
-		$d=User::model()->findOne(array('username' => 'sammaye'));
+		$d=User::model()->findOne(array('username' => 'pcmnac'));
 		$this->assertTrue($c->equals($d));
 	}
 
@@ -549,27 +549,27 @@ class MongoDocumentTest extends CTestCase
 	{
 		$c = new User;
 		User::model()->resetScope();
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$this->assertTrue($c->clean());
 		$this->assertNull($c->username);
 
 		$r = User::model()->findOne();
-		$this->assertInstanceOf('sammaye\mongoyii\Document', $r);
+		$this->assertInstanceOf('pcmnac\mongoyii\Document', $r);
 
 		$r->username = 'fgfgfg';
 		$r->refresh();
-		$this->assertEquals('sammaye', $r->username);
+		$this->assertEquals('pcmnac', $r->username);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Document::getAttributeLabel
+	 * @covers pcmnac\mongoyii\Document::getAttributeLabel
 	 */
 	public function testGetAttributeLabel()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$this->assertEquals('name', $c->getAttributeLabel('username'));
@@ -578,45 +578,45 @@ class MongoDocumentTest extends CTestCase
 	public function testSaveCounters()
 	{
 		$c = new User;
-		$c->username = 'sammaye';
+		$c->username = 'pcmnac';
 		$this->assertTrue($c->save());
 
 		$c->saveCounters(array('i' => 1));
 		$this->assertTrue($c->i == 1);
 
-		$d = User::model()->findOne(array('username' => 'sammaye'));
+		$d = User::model()->findOne(array('username' => 'pcmnac'));
 		$this->assertTrue($d->i == 1);
 
 		$c->saveCounters(array('i' => -1));
 		$this->assertTrue($c->i == 0);
 
-		$e = User::model()->findOne(array('username' => 'sammaye'));
+		$e = User::model()->findOne(array('username' => 'pcmnac'));
 		$this->assertTrue($e->i == 0);
 
 		$f = new User;
 		$f->username = 'merry';
-		$this->setExpectedException('sammaye\mongoyii\Exception');
+		$this->setExpectedException('pcmnac\mongoyii\Exception');
 		$f->saveCounters(array('i' => 1));
 	}
 	
 	public function testVersioning()
 	{
 		$m = new versionedDocument();
-		$m->name = "sammaye";
+		$m->name = "pcmnac";
 		$this->assertTrue($m->save());
 
 		$o = versionedDocument::model()->findOne(array('_id' => $m->_id));
 		$o->name = "meh";
 		$this->assertTrue($o->save());
 		
-		$m->name = "sammaye";
+		$m->name = "pcmnac";
 		$this->assertFalse($m->save());
 	}
 	
 	public function testIncrementVersion()
 	{
 		$m = new versionedDocument();
-		$m->name = "sammaye";
+		$m->name = "pcmnac";
 		$this->assertTrue($m->save()); // 1
 
 		$o = versionedDocument::model()->findOne(array('_id' => $m->_id));
@@ -629,7 +629,7 @@ class MongoDocumentTest extends CTestCase
 	public function testSetVersion()
 	{
 		$m = new versionedDocument();
-		$m->name = "sammaye";
+		$m->name = "pcmnac";
 		$this->assertTrue($m->save()); // 1
 
 		$o = versionedDocument::model()->findOne(array('_id' => $m->_id));
@@ -642,7 +642,7 @@ class MongoDocumentTest extends CTestCase
 	public function testGetLatest()
 	{
 		$m = new versionedDocument();
-		$m->name = "sammaye";
+		$m->name = "pcmnac";
 		$this->assertTrue($m->save()); // 1
 		
 		$d = clone $m;

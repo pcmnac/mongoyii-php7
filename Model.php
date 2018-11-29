@@ -1,14 +1,14 @@
 <?php
 
-namespace sammaye\mongoyii;
+namespace pcmnac\mongoyii;
 
 use Yii;
 use CModel;
 use CException;
 
-use sammaye\mongoyii\Client;
-use sammaye\mongoyii\Document;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Client;
+use pcmnac\mongoyii\Document;
+use pcmnac\mongoyii\Exception;
 
 class Model extends CModel
 {

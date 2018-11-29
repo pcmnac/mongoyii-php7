@@ -1,12 +1,12 @@
 <?php
 
-namespace sammaye\mongoyii;
+namespace pcmnac\mongoyii;
 
 use Yii;
 use CActiveDataProvider;
 
-use sammaye\mongoyii\Document;
-use sammaye\mongoyii\Query;
+use pcmnac\mongoyii\Document;
+use pcmnac\mongoyii\Query;
 
 /**
  * EMongoDataProvider
@@ -181,7 +181,7 @@ class DataProvider extends CActiveDataProvider
 	 * @param string $className
 	 * @return \CSort|Sort|false - the sorting object. If this is false, it means the sorting is disabled.
 	 */
-	public function getSort($className = 'sammaye\mongoyii\Sort')
+	public function getSort($className = 'pcmnac\mongoyii\Sort')
 	{
 		if($this->_sort === null){
 			$this->_sort = new $className;

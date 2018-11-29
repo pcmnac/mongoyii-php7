@@ -1,6 +1,6 @@
 <?php
 
-sammaye\mongoyii\Document;
+pcmnac\mongoyii\Document;
 
 class versionedDocument extends Document
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace sammaye\mongoyii\util;
+namespace pcmnac\mongoyii\util;
 
 use Yii;
 use CCacheDependency;
 
-use sammaye\mongoyii\Client;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Client;
+use pcmnac\mongoyii\Exception;
 
 /**
  * EMongoCacheDependency represents a dependency based on the query result of a Mongo Query.

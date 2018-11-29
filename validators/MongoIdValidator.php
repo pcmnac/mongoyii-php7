@@ -1,6 +1,6 @@
 <?php
 
-namespace sammaye\mongoyii\validators;
+namespace pcmnac\mongoyii\validators;
 
 use Yii;
 use CValidator;

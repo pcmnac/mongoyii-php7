@@ -1,12 +1,12 @@
 <?php
 
-namespace sammaye\mongoyii\util;
+namespace pcmnac\mongoyii\util;
 
 use Yii;
 use CHttpSession;
 
-use sammaye\mongoyii\Client;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Client;
+use pcmnac\mongoyii\Exception;
 
 /**
  * EMongoSession extends {@link CHttpSession} by using database as session data storage.

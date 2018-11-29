@@ -1,7 +1,7 @@
 <?php
 
-use sammaye\mongoyii\Document;
-use sammaye\mongoyii\Model;
+use pcmnac\mongoyii\Document;
+use pcmnac\mongoyii\Model;
 
 class User extends Document
 {
@@ -35,14 +35,14 @@ class User extends Document
 	public function behaviors()
 	{
 		return array(
-			'sammaye\mongoyii\behaviors\TimestampBehavior'
+			'pcmnac\mongoyii\behaviors\TimestampBehavior'
 		);
 	}
 
 	public function rules()
 	{
 		return array(
-			array('username', 'sammaye\mongoyii\validators\UniqueValidator', 'className' => 'User', 'attributeName' => 'username', 'on' => 'testUnqiue'),
+			array('username', 'pcmnac\mongoyii\validators\UniqueValidator', 'className' => 'User', 'attributeName' => 'username', 'on' => 'testUnqiue'),
 			array('addresses', 'subdocument', 'type' => 'many', 'rules' => array(
 				array('road, town, county, post_code', 'safe'),
 				array('telephone', 'numerical', 'integerOnly' => true)

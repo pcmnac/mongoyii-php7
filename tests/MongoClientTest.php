@@ -5,31 +5,31 @@ require_once 'bootstrap.php';
 class MongoClientTest extends CTestCase
 {
 	/**
-	 * @covers sammaye\mongoyii\Client
+	 * @covers pcmnac\mongoyii\Client
 	 */
 	public function testSettingUpConnection()
 	{
 		$mongo = Yii::app()->mongodb;
-		$this->assertInstanceOf('sammaye\mongoyii\Client', $mongo);
+		$this->assertInstanceOf('pcmnac\mongoyii\Client', $mongo);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Client::selectCollection
+	 * @covers pcmnac\mongoyii\Client::selectCollection
 	 */
 	public function testSelectCollection()
 	{
 		$mongo = Yii::app()->mongodb;
 
-		$this->assertInstanceOf('sammaye\mongoyii\Collection', $mongo->selectCollection('t'));
+		$this->assertInstanceOf('pcmnac\mongoyii\Collection', $mongo->selectCollection('t'));
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Client::selectDatabase
+	 * @covers pcmnac\mongoyii\Client::selectDatabase
 	 */
 	public function testGetDB()
 	{
 		$mongo = Yii::app()->mongodb;
-		$this->assertInstanceOf('sammaye\mongoyii\Database', $mongo->selectDatabase());
+		$this->assertInstanceOf('pcmnac\mongoyii\Database', $mongo->selectDatabase());
 	}
 
 	/**
@@ -41,7 +41,7 @@ class MongoClientTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Client::createMongoIdFromTimestamp
+	 * @covers pcmnac\mongoyii\Client::createMongoIdFromTimestamp
 	 */
 	public function testCreateMongoIDFromTimestamp()
 	{

@@ -8,7 +8,7 @@ return CMap::mergeArray(
 	array(
 		'components' => array (
 			'mongodb' => array(
-				'class' => 'sammaye\mongoyii\Client',
+				'class' => 'pcmnac\mongoyii\Client',
 				'uri' => 'mongodb://localhost:27017/admin',
 				'options' => [],
 				'driverOptions' => [],
@@ -21,7 +21,7 @@ return CMap::mergeArray(
 				'enableProfiling' => true
 			),
 			'authManager' => array (
-				'class' => 'sammaye\mongoyii\AuthManager' 
+				'class' => 'pcmnac\mongoyii\AuthManager' 
 			) 
 		) 
 	)

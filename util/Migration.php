@@ -1,14 +1,14 @@
 <?php
 
-namespace sammaye\mongoyii\util;
+namespace pcmnac\mongoyii\util;
 
 use MongoDB\Driver\Command;
 
 use Yii;
 use CComponent;
 
-use sammaye\mongoyii\Client;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Client;
+use pcmnac\mongoyii\Exception;
 
 /**
  * EMongoMigration is designed to be used together with the "yiic migratemongo" command.

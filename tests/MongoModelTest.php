@@ -12,14 +12,14 @@ class MongoModelTest extends CTestCase
 	public function testModelCreation()
 	{
 		$d = new Dummy();
-		$this->assertInstanceOf('sammaye\mongoyii\Model', $d);
+		$this->assertInstanceOf('pcmnac\mongoyii\Model', $d);
 	}
 
 	public function testMagics()
 	{
 		$d = new Dummy();
-		$d->username = 'sammaye';
-		$this->assertEquals('sammaye', $d->username);
+		$d->username = 'pcmnac';
+		$this->assertEquals('pcmnac', $d->username);
 		$this->assertTrue(isset($d->username));
 		unset($d->username);
 		$this->assertFalse(isset($d->username));
@@ -34,30 +34,30 @@ class MongoModelTest extends CTestCase
 		$an = $d->attributeNames();
 		$this->assertArrayHasKey('dum',array_flip($an));
 
-		$d->username = 'sammaye';
+		$d->username = 'pcmnac';
 		$attr = $d->getAttributes();
 		$this->assertArrayHasKey('username', $attr);
 		$this->assertArrayHasKey('dum', $attr);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Model::getDbConnection
+	 * @covers pcmnac\mongoyii\Model::getDbConnection
 	 */
 	public function testGetDbConnection()
 	{
 		$d = new Dummy();
 		$dbc = $d->getDbConnection();
-		$this->assertInstanceOf('sammaye\mongoyii\Client', $dbc);
+		$this->assertInstanceOf('pcmnac\mongoyii\Client', $dbc);
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Model::getDocument
+	 * @covers pcmnac\mongoyii\Model::getDocument
 	 */
 	public function testGetDocument()
 	{
 		$d = new Dummy();
 		$d->dum = 'dum-dum';
-		$d->username = 'sammaye';
+		$d->username = 'pcmnac';
 
 		$doc = $d->getDocument();
 		$this->assertArrayHasKey('username', $doc);
@@ -65,13 +65,13 @@ class MongoModelTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Model::getRawDocument
+	 * @covers pcmnac\mongoyii\Model::getRawDocument
 	 */
 	public function testGetRawDocument()
 	{
 		$d = new Dummy();
 		$d->dum = 'dum-dum';
-		$d->username = 'sammaye';
+		$d->username = 'pcmnac';
 
 		$doc = $d->getRawDocument();
 		$this->assertArrayHasKey('username', $doc);
@@ -79,13 +79,13 @@ class MongoModelTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Model::getJSONDocument
+	 * @covers pcmnac\mongoyii\Model::getJSONDocument
 	 */
 	public function testGetJSONDocument()
 	{
 		$d = new Dummy();
 		$d->dum = 'dum-dum';
-		$d->username = 'sammaye';
+		$d->username = 'pcmnac';
 
 		$doc = $d->getJSONDocument();
 		$this->assertTrue(array_key_exists('username', json_decode($doc)));
@@ -93,13 +93,13 @@ class MongoModelTest extends CTestCase
 	}
 
 	/**
-	 * @covers sammaye\mongoyii\Model::getBSONDocument
+	 * @covers pcmnac\mongoyii\Model::getBSONDocument
 	 */
 	public function testGetBSONDocument()
 	{
 		$d = new Dummy();
 		$d->dum = 'dum-dum';
-		$d->username = 'sammaye';
+		$d->username = 'pcmnac';
 
 		$doc = $d->getBSONDocument();
 		$this->assertTrue(array_key_exists('username', bson_decode($doc)));

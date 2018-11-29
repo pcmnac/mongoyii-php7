@@ -1,14 +1,14 @@
 <?php
 
-namespace sammaye\mongoyii\util;
+namespace pcmnac\mongoyii\util;
 
 use Yii;
 use MigrateCommand as BaseMigrateCommand;
 use CConsoleCommand;
 use CHtml;
 
-use sammaye\mongoyii\Client;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Client;
+use pcmnac\mongoyii\Exception;
 
 
 Yii::import('system.cli.commands.MigrateCommand');
@@ -24,7 +24,7 @@ Yii::import('system.cli.commands.MigrateCommand');
  * <pre>
  *   'commandMap' => array(
  *       'migratemongo' => array(
- *           'class' => 'sammaye\mongoyii\util\MigrateCommand'
+ *           'class' => 'pcmnac\mongoyii\util\MigrateCommand'
  *       )
  *   )
  * </pre>

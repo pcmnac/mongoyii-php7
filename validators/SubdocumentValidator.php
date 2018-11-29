@@ -1,12 +1,12 @@
 <?php
 
-namespace sammaye\mongoyii\validators;
+namespace pcmnac\mongoyii\validators;
 
 use Yii;
 use CValidator;
 
-use sammaye\mongoyii\Model;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Model;
+use pcmnac\mongoyii\Exception;
 
 /**
  * ESubdocumentValidator

@@ -1,6 +1,6 @@
 <?php
 
-namespace sammaye\mongoyii;
+namespace pcmnac\mongoyii;
 
 use Yii;
 use CLogRoute;

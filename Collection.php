@@ -1,11 +1,11 @@
 <?php
 
-namespace sammaye\mongoyii;
+namespace pcmnac\mongoyii;
 
-use sammaye\mongoyii\Client;
+use pcmnac\mongoyii\Client;
 use Yii;
 
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Exception;
 
 class Collection
 {

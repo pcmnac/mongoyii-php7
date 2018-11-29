@@ -2,7 +2,7 @@
 
 require_once 'bootstrap.php';
 
-use sammaye\mongoyii\DataProvider;
+use pcmnac\mongoyii\DataProvider;
 
 class MongoActiveDataProviderTest extends CTestCase
 {
@@ -14,19 +14,19 @@ class MongoActiveDataProviderTest extends CTestCase
 
 	/**
 	 * I am only testing my public API, not that of the CActiveDataProvider in general
-	 * @covers sammaye\mongoyii\DataProvider
+	 * @covers pcmnac\mongoyii\DataProvider
 	 */
 	public function testFetchData()
 	{
 		for($i=0;$i<=4;$i++){
 			$u = new User();
-			$u->username = 'sammaye';
+			$u->username = 'pcmnac';
 			$u->save();
 		}
 
 		$d = new DataProvider('User', array(
 			'criteria' => array(
-				'condition' => array('username' => 'sammaye'),
+				'condition' => array('username' => 'pcmnac'),
 				'sort' => array('username' => -1),
 			)
 		));

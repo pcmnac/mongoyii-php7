@@ -1,6 +1,6 @@
 <?php
 
-namespace sammaye\mongoyii;
+namespace pcmnac\mongoyii;
 
 use MongoDB\BSON\ObjectID;
 use MongoDB\GridFS\GridFSDownload;
@@ -8,8 +8,8 @@ use MongoDB\GridFS\GridFSDownload;
 use Yii;
 use CUploadedFile;
 
-use sammaye\mongoyii\Document;
-use sammaye\mongoyii\Exception;
+use pcmnac\mongoyii\Document;
+use pcmnac\mongoyii\Exception;
 
 /**
  * The MongoYii representation of a helper for uploading files to GridFS.

@@ -1,6 +1,6 @@
 <?php
 
-use sammaye\mongoyii\Document;
+use pcmnac\mongoyii\Document;
 
 class Interest extends Document
 {

@@ -1,6 +1,6 @@
 <?php
 
-use sammaye\mongoyii\Model;
+use pcmnac\mongoyii\Model;
 
 class Dummy extends Model
 {
