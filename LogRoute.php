@@ -50,7 +50,7 @@ class LogRoute extends CLogRoute
                     'source' => $_SERVER['SERVER_ADDR'],
                     'level' => $log[1],
                     'category' => $log[2],
-                    'logtime' => new UTCDateTime((int)$log[3]),
+                    'logtime' => new UTCDateTime((int)$log[3] * 1000),
                     'message' => $log[0],
                 )
             );
